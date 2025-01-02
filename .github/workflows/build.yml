@@ -44,7 +44,7 @@ jobs:
       with:
           path: |
             client.zip
-    - name: Upload Client Pack
+    - name: Upload Cleanroom Pack
       uses: actions/upload-artifact@v4
       with:
           path: |
