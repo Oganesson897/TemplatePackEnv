@@ -42,20 +42,24 @@ jobs:
     - name: Upload Client Pack
       uses: actions/upload-artifact@v4
       with:
+          name: client
           path: |
             client.zip
     - name: Upload Cleanroom Pack
       uses: actions/upload-artifact@v4
       with:
+          name: cleanroom
           path: |
             cleanroom.zip
     - name: Upload Server Pack
       uses: actions/upload-artifact@v4
       with:
+          name: server
           path: |
             server.zip
     - name: Upload ModList
       uses: actions/upload-artifact@v4
       with:
+          name: modlist
           path: |
             modlist.txt
