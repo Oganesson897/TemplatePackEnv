@@ -19,21 +19,43 @@ jobs:
         chmod +x ./packwiz
         ./packwiz curseforge export -o client.zip
         ./packwiz list > modlist.txt
-    - name: Download
+    - name: Export Server Pack
       shell: bash
       run: |
+        sudo apt update
+        sudo apt install jq
+        download_url=$(curl -s https://api.github.com/repos/CleanroomMC/Cleanroom/releases/latest | jq -r '.assets | last | .browser_download_url')
+        curl -L -o cleanroom.zip "$download_url"
+
         serverPack="server.zip"
         cp LICENSE server/
           
         cd server
         java -jar packwiz-installer-bootstrap.jar ../pack.toml
+        rm packwiz-installer-bootstrap.jar packwiz-installer.jar packwiz.json
         cd ..
 
-        zip -r $serverPack server
-    - name: Upload Build Artifact
+        mv server minecraft
+
+        zip -r $serverPack minecraft
+        zip -r cleanroom.zip minecraft
+    - name: Upload Client Pack
       uses: actions/upload-artifact@v4
       with:
           path: |
             client.zip
+    - name: Upload Client Pack
+      uses: actions/upload-artifact@v4
+      with:
+          path: |
+            cleanroom.zip
+    - name: Upload Server Pack
+      uses: actions/upload-artifact@v4
+      with:
+          path: |
             server.zip
+    - name: Upload ModList
+      uses: actions/upload-artifact@v4
+      with:
+          path: |
             modlist.txt
