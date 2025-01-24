@@ -1,1 +1,6 @@
 index.toml
+
+# Build
+build/server/
+build/__pycache__/
+buildOut/

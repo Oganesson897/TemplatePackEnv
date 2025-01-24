@@ -44,6 +44,7 @@ def build(args):
 
     refresh()
     export_client_pack()
+    export_cleanroom_pack()
 
     if args.client:
         return

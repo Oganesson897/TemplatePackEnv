@@ -2,6 +2,9 @@
 LICENSE
 README.md
 .gitignore
+*.py
 
-# Server
-server/
+# Builds
+build/
+buildOut/
+.github/
