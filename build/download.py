@@ -6,7 +6,7 @@ import os
 
 basePath = os.path.normpath(os.path.realpath(__file__).replace("download.py", "") + "/server")
 
-def download():
+def start():
     with open(basePath + "/forge-installer.jar", "w+b") as jar:
         forgeVer = "14.23.5.2860"
         mcVer = "1.12.2"

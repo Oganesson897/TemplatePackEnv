@@ -13,7 +13,7 @@ import json
 
 from pathlib import Path
 
-from build.download import download
+from build.download import start
 
 def parse_args():
     parser = argparse.ArgumentParser(prog="build", description=__doc__)
@@ -65,7 +65,7 @@ def export_server_pack():
     print("Server Pack Exporting")
     server_pack = "server.zip"
 
-    download.download()
+    start()
 
     shutil.copy("LICENSE", "build/server/LICENSE")
 
