@@ -40,4 +40,4 @@ jobs:
       with:
           name: modlist
           path: |
-            buildOut/modlist.txt
+            buildOut/modlist.html

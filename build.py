@@ -134,7 +134,7 @@ def export_cleanroom_pack():
             zipf.write(file, file)
 
     os.chdir("../..")
-    shutil.move(f"build/server/{cleanroom}", f"buildOut/{cleanroom}")
+    shutil.move(f"build/cleanroom/{cleanroom}", f"buildOut/{cleanroom}")
     print("Cleanroom Pack Export Done")
 
 def export_modlist():
