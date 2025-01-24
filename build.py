@@ -30,7 +30,7 @@ def packwiz():
     if os.name == 'nt':
         return 'packwiz.exe'
 
-basePath = os.path.normpath(os.path.realpath(__file__)[:-7] + "..")
+basePath = os.path.normpath(os.path.realpath(__file__)[:-8])
 packwizName = packwiz()
 
 def build(args):
