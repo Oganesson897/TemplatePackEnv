@@ -37,7 +37,7 @@ def cleanroom():
     print("Cleanroom Pack Exporting")
     copy('./common', './cleanroom')
     # Run packwiz
-    os.chdir('./cleanroom')
+    os.chdir('cleanroom')
     refresh()
     subprocess.run([packwizName, 'curseforge', 'export', '-o', 'cleanroom.zip'], check=True)
     shutil.move('./cleanroom.zip', './buildOut/')
