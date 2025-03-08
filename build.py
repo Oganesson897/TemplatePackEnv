@@ -28,7 +28,7 @@ def forge():
     print("Forge Pack Exporting")
     copy('./common', './forge')
     # Run packwiz
-    os.chdir('./forge')
+    os.chdir('forge/')
     refresh()
     subprocess.run([packwizName, 'curseforge', 'export', '-o', 'forge.zip'], check=True)
     shutil.copy('./forge.zip', './buildOut/')
