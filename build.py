@@ -28,7 +28,7 @@ def forge():
     print("Forge Pack Exporting")
     copy('./common', './forge')
     # Run packwiz
-    os.chdir('forge/')
+    os.chdir('./forge')
     refresh()
     subprocess.run([packwizName, 'curseforge', 'export', '-o', 'forge.zip'], check=True)
     shutil.copy('./forge.zip', './buildOut/')
@@ -48,6 +48,9 @@ def refresh():
 def copy(src_dir, dst_dir):
     for src_dir_path, dirs, files in os.walk(src_dir):
         dst_dir_path = src_dir_path.replace(src_dir, dst_dir, 1)
+
+        if not os.path.exists(dst_dir_path):
+            os.makedirs(dst_dir_path)
         
         for file_ in files:
             src_file = os.path.join(src_dir_path, file_)
