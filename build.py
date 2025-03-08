@@ -26,18 +26,18 @@ def build():
 
 def forge():
     print("Forge Pack Exporting")
-    copy(os.path.join(basePath, 'common'), os.path.join(basePath, 'forge'))
+    copy('./common', './forge')
     # Run packwiz
-    os.chdir(os.path.join(basePath, 'forge'))
+    os.chdir('./forge')
     refresh()
     subprocess.run([packwizName, 'curseforge', 'export', '-o', 'forge.zip'], check=True)
     shutil.copy('./forge.zip', './buildOut/')
 
 def cleanroom():
     print("Cleanroom Pack Exporting")
-    copy(os.path.join(basePath, 'common'), os.path.join(basePath, 'cleanroom'))
+    copy('./common', './cleanroom')
     # Run packwiz
-    os.chdir(os.path.join(basePath, 'cleanroom'))
+    os.chdir('./cleanroom')
     refresh()
     subprocess.run([packwizName, 'curseforge', 'export', '-o', 'cleanroom.zip'], check=True)
     shutil.move('./cleanroom.zip', './buildOut/')
