@@ -4,3 +4,6 @@ index.toml
 build/server/
 build/__pycache__/
 buildOut/
+
+# Minecraft
+*.jar

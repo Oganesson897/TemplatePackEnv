@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, '[build skip]')"
+    if: ${{ !contains(github.event.head_commit.message, '[skip]') }}
     name: "Build"
     runs-on: ubuntu-latest
     steps:
@@ -17,27 +17,15 @@ jobs:
       shell: bash
       run: |
         python build.py
-    - name: Upload Client Pack
+    - name: Upload Forge Pack
       uses: actions/upload-artifact@v4
       with:
-          name: client
+          name: forge
           path: |
-            buildOut/client.zip
+            buildOut/forge.zip
     - name: Upload Cleanroom Pack
       uses: actions/upload-artifact@v4
       with:
           name: cleanroom
           path: |
             buildOut/cleanroom.zip
-    - name: Upload Server Pack
-      uses: actions/upload-artifact@v4
-      with:
-          name: server
-          path: |
-            buildOut/server.zip
-    - name: Upload ModList
-      uses: actions/upload-artifact@v4
-      with:
-          name: modlist
-          path: |
-            buildOut/modlist.html
